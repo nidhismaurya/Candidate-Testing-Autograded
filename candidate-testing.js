@@ -5,7 +5,7 @@ const input = require('readline-sync');
 // TODO 1.1a: Define candidateName // 
 let candidateName = "";
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
-let question = "Who was the first American women in space ?";
+let question = "Who was the first American woman in space? ";
 let correctAnswer = "Sally Ride";
 
 let candidateAnswer = "";
@@ -40,12 +40,12 @@ if (candidateAnswer.toLowerCase()===correctAnswer.toLowerCase()) {
     console.log('Your answer is incorrect');
     console.log(`correct answer : ${correctAnswer}`);
   }
-}
+
   let grade;  //TODO 3.2 use this variable to calculate the candidates score.
 
 
   return grade;
-
+}
 
 function runProgram() {
   askForName();
