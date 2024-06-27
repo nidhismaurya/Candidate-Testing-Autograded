@@ -18,7 +18,7 @@ let questions = ["Who was the first American woman in space? ","True or false: 5
   "What is the minimum crew size for the ISS? "];
   
 let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", "3"];
-let candidateAnswers = [];
+let candidateAnswers = [""];
 
 
 function askForName() {
@@ -30,26 +30,37 @@ function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
 for (let i = 0; i < questions.length; i++) {
   candidateAnswers[i] = input.question(questions[i]);
-  }
+  
+}
 
 }
 
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
+  console.log(`Candidate Name: ${candidateName}`);
+for (let i= 0; i < questions.length; i++) {
+  if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase());
+  console.log(`${questions[i]}\n Your Answer: ${candidateAnswers[i]}\n Correct Answer: ${correctAnswers[i]}`) }
 
-console.log(`Your answer: ${candidateAnswers}`);
-if (candidateAnswers[i].toLowerCase()===correctAnswers[i].toLowerCase()) {
-  console.log("Congratulations ! : Correct answer");
-} else {
-    console.log('Your answer is incorrect');
-    console.log(`correct answer : ${correctAnswers}`);
+  let candidateScore = 0
+  for (let i = 0 ; i < correctAnswers.length; i++) {
+    if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
+      candidateScore = candidateScore+20
+    }
   }
+  console.log(`>>> Overall Grade: ${candidateScore}% <<<`);
+ 
+  if ( candidateScore < 80) {
+    console.log(">>> Status: FAILED ! <<<");
+  } else {console.log(">>> Status: Passed ! <<<")}
+  return candidateScore;
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
+  let grade = (correctAnswers.length/ questions.length) * 100 ;
 
-
+  console.log(grade);
   return grade;
+  
 }
 
 function runProgram() {
